@@ -7,12 +7,14 @@
 /* ── Design Tokens — Stitch Specialty Coffee Palette ──────── */
 :root {
   /* Surfaces */
-  --bg-surface: #FBF8F5;        /* Warm Cream Linen */
+  --bg-surface: #FBF8F5;
+  /* Warm Cream Linen */
   --bg-base: #FBF8F5;
   --bg-primary: #FFFFFF;
   --bg-card: #FFFFFF;
   --bg-card-solid: #FFFFFF;
-  --bg-card-secondary: #F4ECE3;  /* Warm Oats Parchment */
+  --bg-card-secondary: #F4ECE3;
+  /* Warm Oats Parchment */
   --bg-elevated: #E9DCD0;
   --bg-hover: rgba(217, 122, 56, 0.08);
   --bg-overlay: rgba(36, 24, 20, 0.5);
@@ -26,16 +28,20 @@
   --shadow-sunken: inset 0 2px 5px rgba(36, 24, 20, 0.08);
 
   /* Text — Deep Roasted Espresso Inks */
-  --text-primary: #241814;      /* Deep Roasted Espresso */
-  --text-secondary: #5C4940;    /* Warm Cocoa */
+  --text-primary: #241814;
+  /* Deep Roasted Espresso */
+  --text-secondary: #5C4940;
+  /* Warm Cocoa */
   --text-muted: #8C776E;
   --text-inverse: #FFFFFF;
 
   /* Accents — Polished Warm Copper & Botanical Sage */
-  --accent: #D97A38;           /* Polished Warm Copper */
+  --accent: #D97A38;
+  /* Polished Warm Copper */
   --accent-hover: #B85F20;
   --accent-light: rgba(217, 122, 56, 0.12);
-  --accent-sage: #5E7B58;      /* Botanical Coffee Sage */
+  --accent-sage: #5E7B58;
+  /* Botanical Coffee Sage */
   --accent-sage-hover: #4B6446;
   --accent-sage-light: rgba(94, 123, 88, 0.12);
   --accent-amber: #E58C44;
@@ -78,24 +84,30 @@
 
 /* ── Stitch Dark Roasted Espresso Theme ──────────────────── */
 [data-theme="dark"] {
-  --bg-surface: #120E0C;        /* Dark Roasted Espresso */
+  --bg-surface: #120E0C;
+  /* Dark Roasted Espresso */
   --bg-base: #120E0C;
   --bg-primary: #17110E;
-  --bg-card: #1C1613;           /* Roasted Bean Surface */
+  --bg-card: #1C1613;
+  /* Roasted Bean Surface */
   --bg-card-solid: #1C1613;
   --bg-card-secondary: #140F0D;
   --bg-elevated: #28201C;
   --bg-hover: rgba(229, 140, 68, 0.1);
   --bg-overlay: rgba(8, 6, 5, 0.85);
 
-  --text-primary: #F9F3EC;      /* Warm Cream Text */
-  --text-secondary: #CBBAB0;    /* Warm Toast */
+  --text-primary: #F9F3EC;
+  /* Warm Cream Text */
+  --text-secondary: #CBBAB0;
+  /* Warm Toast */
   --text-muted: #8F7B71;
 
-  --accent: #E58C44;           /* Vibrant Warm Amber Copper */
+  --accent: #E58C44;
+  /* Vibrant Warm Amber Copper */
   --accent-hover: #F09D58;
   --accent-light: rgba(229, 140, 68, 0.2);
-  --accent-sage: #7FA478;      /* Fresh Coffee Sage */
+  --accent-sage: #7FA478;
+  /* Fresh Coffee Sage */
   --accent-sage-hover: #92B98B;
   --accent-sage-light: rgba(127, 164, 120, 0.2);
 
@@ -104,7 +116,9 @@
 }
 
 /* ── Base Reset & Body ───────────────────────────────────── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -121,12 +135,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color var(--duration-slow) var(--ease-out),
-              color var(--duration-slow) var(--ease-out);
+    color var(--duration-slow) var(--ease-out);
   overflow-x: hidden;
 }
 
 /* ── Typography ──────────────────────────────────────────── */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-sans);
   font-weight: 700;
   letter-spacing: -0.025em;
@@ -202,6 +221,7 @@ h1, h2, h3, h4, h5, h6 {
   body {
     padding: var(--space-lg);
   }
+
   .app-container {
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-xl);
@@ -221,8 +241,8 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-sm);
   position: relative;
   transition: transform var(--duration-normal) var(--ease-spring),
-              box-shadow var(--duration-normal) var(--ease-out),
-              border-color var(--duration-normal) var(--ease-out);
+    box-shadow var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out);
   border: 1px solid var(--border);
 }
 
@@ -286,8 +306,8 @@ h1, h2, h3, h4, h5, h6 {
   user-select: none;
   position: relative;
   transition: transform var(--duration-normal) var(--ease-spring),
-              box-shadow var(--duration-normal) var(--ease-out),
-              background var(--duration-normal) var(--ease-out);
+    box-shadow var(--duration-normal) var(--ease-out),
+    background var(--duration-normal) var(--ease-out);
 }
 
 .btn:active {
@@ -642,18 +662,43 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 /* ── Motion & Animation Primitives ───────────────────────── */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px) scale(0.98); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(40px) scale(0.96); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @keyframes pulseGlow {
-  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 var(--accent-light); }
-  50% { opacity: 0.85; transform: scale(1.03); box-shadow: 0 0 16px 4px var(--accent-light); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 var(--accent-light);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: scale(1.03);
+    box-shadow: 0 0 16px 4px var(--accent-light);
+  }
 }
 
 .fade-in {
@@ -668,14 +713,31 @@ input[type="range"]::-webkit-slider-thumb:hover {
   animation: pulseGlow 2.5s ease-in-out infinite;
 }
 
-.stagger > *:nth-child(1) { animation-delay: 0ms; }
-.stagger > *:nth-child(2) { animation-delay: 40ms; }
-.stagger > *:nth-child(3) { animation-delay: 80ms; }
-.stagger > *:nth-child(4) { animation-delay: 120ms; }
-.stagger > *:nth-child(5) { animation-delay: 160ms; }
+.stagger>*:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.stagger>*:nth-child(2) {
+  animation-delay: 40ms;
+}
+
+.stagger>*:nth-child(3) {
+  animation-delay: 80ms;
+}
+
+.stagger>*:nth-child(4) {
+  animation-delay: 120ms;
+}
+
+.stagger>*:nth-child(5) {
+  animation-delay: 160ms;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -710,6 +772,12 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
 .sr-only {
   position: absolute;
-  width: 1px; height: 1px; padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
