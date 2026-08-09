@@ -190,20 +190,55 @@ export function BrewWorkspace({
           </div>
 
           {/* Ratio & Water */}
-          <div className="card-secondary" style={{ display: 'flex', flexDirection: 'column', padding: '16px' }}>
-            <span className="text-caption" style={{ marginBottom: 'var(--space-sm)' }}>Brew Ratio</span>
-            <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
-              {(methodId === 'espresso' ? [1.8, 2.0, 2.2, 2.5] : [15, 16, 16.4, 16.7, 17]).map(r => (
+          <div className="card-secondary" style={{ display: 'flex', flexDirection: 'column', padding: '16px', gap: 'var(--space-sm)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span className="text-caption">Brew Ratio</span>
+              <span className="stat-value" style={{ fontSize: '18px', color: 'var(--accent-sage)', fontWeight: 700 }}>
+                1:{recipe.ratio}
+              </span>
+            </div>
+
+            {/* Tactile 0.5 Step Ratio Slider (1 to 30) */}
+            <input
+              type="range"
+              min="1"
+              max="30"
+              step="0.5"
+              value={recipe.ratio}
+              onChange={(e) => {
+                const val = parseFloat(e.target.value);
+                setUserRatioOverride(val);
+                if (window.navigator?.vibrate) {
+                  try { window.navigator.vibrate(8); } catch (_) {}
+                }
+              }}
+              aria-label="Brew ratio adjustment"
+            />
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '10px', color: 'var(--text-muted)' }}>
+              <span>1:1 Concentrated</span>
+              <span>1:15 Benchmark</span>
+              <span>1:30 Light</span>
+            </div>
+
+            {/* Quick Ratio Presets */}
+            <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginTop: '2px' }}>
+              {(methodId === 'espresso' ? [1.5, 2.0, 2.5, 3.0] : [12, 15, 16, 16.5, 17]).map(r => (
                 <button
                   key={r}
-                  onClick={() => setUserRatioOverride(r)}
+                  onClick={() => {
+                    setUserRatioOverride(r);
+                    if (window.navigator?.vibrate) {
+                      try { window.navigator.vibrate(8); } catch (_) {}
+                    }
+                  }}
                   className={`chip ${recipe.ratio === r ? 'active' : ''}`}
-                  style={{ padding: '4px 10px', fontSize: '12px' }}
+                  style={{ padding: '3px 8px', fontSize: '11px' }}
                 >
                   1:{r}
                 </button>
               ))}
             </div>
+
             <div style={{
               marginTop: 'auto', paddingTop: 'var(--space-sm)',
               borderTop: '1px solid var(--border)',

@@ -285,6 +285,99 @@ export const ALL_RECIPES = [
       ];
     }
   },
+  {
+    id: 'lance-frenchpress',
+    author: 'Lance Hedrick',
+    title: 'High-Yield Extraction French Press',
+    methodId: 'frenchpress',
+    benchmarkDose: 20,
+    benchmarkWater: 320,
+    ratio: 16.0,
+    temp: 98,
+    grindType: 'Medium-Fine',
+    targetTime: '6:00',
+    description: 'Medium-fine grind, boiling water immersion with active crust break at 4 mins for intense sweetness.',
+    category: 'High Yield',
+    badge: 'Modern Extraction',
+    getSteps: (dose, ratio, temp) => {
+      const water = Math.round(dose * ratio);
+      return [
+        { title: 'Vigorous Initial Pour', targetWater: water, duration: 30, instruction: `Pour ${water}g of ${temp}°C water fast to create maximum turbulence. Cover with lid.` },
+        { title: 'Steep Phase', targetWater: water, duration: 210, instruction: 'Let steep completely undisturbed for 3:30.' },
+        { title: 'Break Crust & Swirl', targetWater: water, duration: 30, instruction: 'At 4:00, gently break top crust with spoon and swirl brewer once to sink grounds.' },
+        { title: 'Plunge Filter Strain', targetWater: water, duration: 90, instruction: 'Wait until 6:00 for fine grounds to settle. Press plunger halfway and pour.' }
+      ];
+    }
+  },
+  {
+    id: 'wendelboe-frenchpress',
+    author: 'Tim Wendelboe',
+    title: 'Nordic Clean French Press',
+    methodId: 'frenchpress',
+    benchmarkDose: 32,
+    benchmarkWater: 480,
+    ratio: 15.0,
+    temp: 94,
+    grindType: 'Medium-Coarse',
+    targetTime: '8:00',
+    description: 'Nordic light roast profile with 1:15 ratio highlighting floral acidity and elegant clean body.',
+    category: 'Nordic Light Roast',
+    badge: 'Floral & Elegant',
+    getSteps: (dose, ratio, temp) => {
+      const water = Math.round(dose * ratio);
+      return [
+        { title: 'Gentle Saturation', targetWater: water, duration: 40, instruction: `Saturate ${dose}g grounds with ${water}g water at ${temp}°C. Give 3 gentle crosswise stirs.` },
+        { title: 'Covered Steep', targetWater: water, duration: 260, instruction: 'Place plunger lid on top without pressing down. Steep for 5:00.' },
+        { title: 'Crust Skim & Rest', targetWater: water, duration: 180, instruction: 'Skim floating crust. Allow cup to rest 3 mins to cool to ideal tasting temp (60°C).' }
+      ];
+    }
+  },
+  {
+    id: 'gwilym-frenchpress',
+    author: 'Gwilym Davies (WBC Champ)',
+    title: 'Full Body Heavy Mouthfeel',
+    methodId: 'frenchpress',
+    benchmarkDose: 25,
+    benchmarkWater: 350,
+    ratio: 14.0,
+    temp: 92,
+    grindType: 'Coarse',
+    targetTime: '5:00',
+    description: 'Concentrated 1:14 ratio producing a rich, chocolatey, syrupy mouthfeel with traditional plunge.',
+    category: 'Heavy Body',
+    badge: 'Syrupy Mouthfeel',
+    getSteps: (dose, ratio, temp) => {
+      const water = Math.round(dose * ratio);
+      return [
+        { title: 'Bloom & Stir', targetWater: water, duration: 30, instruction: `Pour ${water}g water at ${temp}°C over ${dose}g coarse coffee. Stir 5 times.` },
+        { title: 'Full Immersion', targetWater: water, duration: 240, instruction: 'Cover and let steep for 4:00.' },
+        { title: 'Slow Smooth Plunge', targetWater: water, duration: 30, instruction: 'Press plunger smoothly all the way down to bottom and serve immediately.' }
+      ];
+    }
+  },
+  {
+    id: 'cupping-frenchpress',
+    author: 'SCA Standard',
+    title: 'Cupping Table Style Immersion',
+    methodId: 'frenchpress',
+    benchmarkDose: 18,
+    benchmarkWater: 306,
+    ratio: 17.0,
+    temp: 93,
+    grindType: 'Medium-Coarse',
+    targetTime: '10:00',
+    description: 'Simulates professional SCA cupping for raw origin flavor evaluation and maximum transparency.',
+    category: 'Origin Tasting',
+    badge: 'SCA Cupping',
+    getSteps: (dose, ratio, temp) => {
+      const water = Math.round(dose * ratio);
+      return [
+        { title: 'Cupping Pour', targetWater: water, duration: 30, instruction: `Pour ${water}g water vigorously over grounds.` },
+        { title: 'Break & Aroma Evaluation', targetWater: water, duration: 210, instruction: 'At 4:00, break crust with spoon and evaluate fragrance notes.' },
+        { title: 'Long Settlement Rest', targetWater: water, duration: 360, instruction: 'Let settle until 10:00. Decant off top cleanly.' }
+      ];
+    }
+  },
 
   // --- ESPRESSO RECIPES ---
   {
