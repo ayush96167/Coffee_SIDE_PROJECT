@@ -152,7 +152,7 @@ export function BrewWorkspace({
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-md)' }}>
           {/* Dose */}
-          <div className="card-secondary" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px' }}>
+          <div className="card-secondary card-interactive" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px' }}>
             <span className="text-caption" style={{ marginBottom: 'var(--space-sm)' }}>Coffee Dose</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-md)' }}>
               <button
@@ -190,7 +190,7 @@ export function BrewWorkspace({
           </div>
 
           {/* Ratio & Water */}
-          <div className="card-secondary" style={{ display: 'flex', flexDirection: 'column', padding: '16px', gap: 'var(--space-sm)' }}>
+          <div className="card-secondary card-interactive" style={{ display: 'flex', flexDirection: 'column', padding: '16px', gap: 'var(--space-sm)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <span className="text-caption">Brew Ratio</span>
               <span className="stat-value" style={{ fontSize: '18px', color: 'var(--accent-sage)', fontWeight: 700 }}>
