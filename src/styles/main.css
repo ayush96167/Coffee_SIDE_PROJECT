@@ -275,31 +275,91 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* ── Cherry Blossom Grainy Frosted Glass Cards ─────────────── */
-.glass-card {
-  background: var(--bg-card);
-  backdrop-filter: var(--glass-blur-lg);
-  -webkit-backdrop-filter: var(--glass-blur-lg);
-  border: var(--glass-border);
-  box-shadow: var(--glass-highlight), var(--shadow-md);
+/* ── Cherry Blossom Specular Frosted Glass Cards ───────────── */
+.glass-card, .card-secondary {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(31px);
+  -webkit-backdrop-filter: blur(31px);
   border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 8px 32px rgba(236, 72, 153, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 0 12px 4px rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
   padding: var(--space-lg);
   transition: transform var(--duration-normal) var(--ease-spring),
               box-shadow var(--duration-normal) var(--ease-out),
               border-color var(--duration-normal) var(--ease-out);
-  position: relative;
-  overflow: hidden;
 }
 
-/* SVG Noise Grain Overlay for Realistic Frosted Glass Texture */
+.card-secondary {
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    0 8px 24px rgba(236, 72, 153, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 0 10px 3px rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="dark"] .glass-card {
+  background: rgba(35, 20, 28, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 0 8px 2px rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .card-secondary {
+  background: rgba(45, 25, 36, 0.65);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 0 8px 2px rgba(255, 255, 255, 0.15);
+}
+
+/* Top Horizontal Light Rim Gradient */
 .glass-card::before, .card-secondary::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.9),
+    transparent
+  );
   pointer-events: none;
-  z-index: 0;
-  border-radius: inherit;
+  z-index: 2;
+}
+
+/* Left Vertical Light Rim Gradient */
+.glass-card::after, .card-secondary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9),
+    transparent,
+    rgba(255, 255, 255, 0.4)
+  );
+  pointer-events: none;
+  z-index: 2;
 }
 
 .glass-card > *, .card-secondary > * {
@@ -308,8 +368,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass-card:hover {
-  box-shadow: var(--glass-highlight), var(--shadow-lg);
-  border-color: rgba(244, 114, 182, 0.4);
+  box-shadow: 
+    0 12px 40px rgba(236, 72, 153, 0.15),
+    inset 0 1.5px 0 rgba(255, 255, 255, 1),
+    inset 0 0 16px 6px rgba(255, 255, 255, 0.6);
+  border-color: rgba(244, 114, 182, 0.5);
 }
 
 .card-interactive {
@@ -318,35 +381,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .card-interactive:hover {
   transform: translateY(-4px) scale(1.01);
-  background: var(--bg-hover);
+  background: rgba(255, 255, 255, 0.65);
   border-color: var(--accent);
-  box-shadow: var(--glass-highlight), 0 12px 36px rgba(236, 72, 153, 0.15);
 }
 
 .card-interactive:active {
   transform: translateY(0) scale(0.99);
   transition-duration: 50ms;
-}
-
-/* Distinct Grainy Frosted Glass Inner Container (Coffee Dose & Brew Ratio Boxes) */
-.card-secondary {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.42) 100%);
-  backdrop-filter: blur(24px) saturate(200%) contrast(105%);
-  -webkit-backdrop-filter: blur(24px) saturate(200%) contrast(105%);
-  border: 1.5px solid rgba(255, 255, 255, 0.95);
-  box-shadow: inset 0 1.5px 0 0 rgba(255, 255, 255, 1), 0 8px 24px -4px rgba(236, 72, 153, 0.14), 0 2px 6px rgba(0, 0, 0, 0.03);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
-  position: relative;
-  overflow: hidden;
-}
-
-[data-theme="dark"] .card-secondary {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.05) 100%);
-  backdrop-filter: blur(24px) saturate(200%);
-  -webkit-backdrop-filter: blur(24px) saturate(200%);
-  border: 1.5px solid rgba(255, 255, 255, 0.22);
-  box-shadow: inset 0 1.5px 0 0 rgba(255, 255, 255, 0.3), 0 8px 24px rgba(0, 0, 0, 0.45);
 }
 
 .card-accent {
