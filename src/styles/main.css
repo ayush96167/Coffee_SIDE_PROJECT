@@ -275,18 +275,25 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* ── User's Specular Glassmorphism Card & Sub-Container System ── */
-.glass-card, .card-secondary, .glass-sub-card {
-  background: rgba(255, 255, 255, 0.38);
+/* ═══════════════════════════════════════════════════════════
+   3-LAYER NESTED GLASS ARCHITECTURE:
+   Layer 3 (___): Base Page Canvas / App Container
+   Layer 2 (__):  Parent Glass Cards (.glass-card)
+   Layer 1 (_):   Top Inner Sub-Containers (.card-secondary, .glass-sub-card)
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Layer 2 (__): Parent Glass Cards ─────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.32);
   backdrop-filter: blur(31px);
   -webkit-backdrop-filter: blur(31px);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.45);
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 12px 36px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
     inset 0 -1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 0 12px 4px rgba(255, 255, 255, 0.45);
+    inset 0 0 12px 4px rgba(255, 255, 255, 0.4);
   position: relative;
   overflow: hidden;
   padding: var(--space-lg);
@@ -295,72 +302,75 @@ h1, h2, h3, h4, h5, h6 {
               border-color var(--duration-normal) var(--ease-out);
 }
 
-.card-secondary {
-  background: rgba(255, 255, 255, 0.48);
-  backdrop-filter: blur(31px);
-  -webkit-backdrop-filter: blur(31px);
-  border-radius: 16px;
-  padding: var(--space-md);
-  border: 1.5px solid rgba(255, 255, 255, 0.75);
-  box-shadow: 
-    0 8px 24px rgba(0, 0, 0, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.25),
-    inset 0 0 10px 3px rgba(255, 255, 255, 0.5);
-}
-
 [data-theme="dark"] .glass-card {
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.45),
+    0 12px 36px rgba(0, 0, 0, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.35),
     inset 0 -1px 0 rgba(255, 255, 255, 0.1),
     inset 0 0 12px 4px rgba(255, 255, 255, 0.12);
 }
 
-[data-theme="dark"] .card-secondary {
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(31px);
-  -webkit-backdrop-filter: blur(31px);
-  border: 1.5px solid rgba(255, 255, 255, 0.18);
+/* ── Layer 1 (_): Top-most Inner Sub-Containers ──────────── */
+.card-secondary, .glass-sub-card {
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border-radius: 16px;
+  padding: var(--space-md);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
   box-shadow: 
-    0 8px 24px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
-    inset 0 0 10px 3px rgba(255, 255, 255, 0.1);
+    0 8px 24px rgba(0, 0, 0, 0.07),
+    inset 0 1.5px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 0 10px 3px rgba(255, 255, 255, 0.65);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Top Horizontal Light Rim Gradient (Specular Edge) */
+[data-theme="dark"] .card-secondary, [data-theme="dark"] .glass-sub-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 0 10px 3px rgba(255, 255, 255, 0.15);
+}
+
+/* Top Horizontal Light Rim Gradient (Independent per Layer) */
 .glass-card::before, .card-secondary::before, .glass-sub-card::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
+  height: 1.5px;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.95),
     transparent
   );
   pointer-events: none;
   z-index: 2;
 }
 
-/* Left Vertical Light Rim Gradient (Specular Edge) */
+/* Left Vertical Light Rim Gradient (Independent per Layer) */
 .glass-card::after, .card-secondary::after, .glass-sub-card::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 1px;
+  width: 1.5px;
   height: 100%;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.95),
     transparent,
-    rgba(255, 255, 255, 0.35)
+    rgba(255, 255, 255, 0.4)
   );
   pointer-events: none;
   z-index: 2;
