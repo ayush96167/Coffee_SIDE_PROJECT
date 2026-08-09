@@ -381,6 +381,63 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
+/* ── 3D Glass Multi-Layer Hover Elevation Physics ──────────── */
+
+/* Layer 2 Hover: Parent Glass Card Elevates & Blurs Canvas Below */
+.glass-card {
+  transition: transform 260ms var(--ease-spring),
+              box-shadow 260ms var(--ease-out),
+              backdrop-filter 260ms var(--ease-out),
+              border-color 260ms var(--ease-out);
+}
+
+.glass-card:hover {
+  transform: translateY(-6px) scale(1.008);
+  backdrop-filter: blur(40px) saturate(220%);
+  -webkit-backdrop-filter: blur(40px) saturate(220%);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.12),
+    inset 0 1.5px 0 rgba(255, 255, 255, 1),
+    inset 0 0 16px 6px rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.85);
+  z-index: 10;
+}
+
+/* Layer 1 Hover: Inner Sub-Container Elevates EVEN HIGHER & Blurs Parent Below */
+.card-secondary, .glass-sub-card, .recipe-item-glass {
+  transition: transform 200ms var(--ease-spring),
+              box-shadow 200ms var(--ease-out),
+              backdrop-filter 200ms var(--ease-out),
+              border-color 200ms var(--ease-out);
+}
+
+.card-secondary.card-interactive:hover,
+.glass-sub-card.card-interactive:hover,
+.recipe-item-glass:hover {
+  transform: translateY(-5px) scale(1.015);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(35px) saturate(230%) contrast(108%);
+  -webkit-backdrop-filter: blur(35px) saturate(230%) contrast(108%);
+  box-shadow: 
+    0 16px 36px -4px rgba(0, 0, 0, 0.14),
+    inset 0 1.5px 0 rgba(255, 255, 255, 1),
+    inset 0 0 14px 4px rgba(255, 255, 255, 0.8);
+  border-color: var(--accent);
+  z-index: 20;
+}
+
+.card-interactive:active, .recipe-item-glass:active {
+  transform: translateY(0) scale(0.99);
+  transition-duration: 50ms;
+}
+
+/* Selected Recipe Highlight State */
+.selected-recipe {
+  background: rgba(5, 150, 105, 0.12) !important;
+  border: 1.5px solid var(--accent-sage) !important;
+  box-shadow: inset 0 1.5px 0 rgba(255, 255, 255, 0.9), 0 8px 24px rgba(5, 150, 105, 0.15) !important;
+}
+
 .glass-card:hover {
   transform: translateY(-4px) scale(1.01);
   box-shadow: 

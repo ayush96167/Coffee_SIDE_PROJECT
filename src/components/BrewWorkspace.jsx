@@ -278,13 +278,9 @@ export function BrewWorkspace({
                 role="button"
                 tabIndex={0}
                 onKeyDown={e => e.key === 'Enter' && handleSelectRecipe(r)}
+                className={`card-secondary card-interactive recipe-item-glass ${isSelected ? 'selected-recipe' : ''}`}
                 style={{
                   padding: '14px 16px',
-                  borderRadius: 'var(--radius-md)',
-                  border: isSelected ? '2px solid var(--accent-sage)' : '1px solid var(--border)',
-                  background: isSelected ? 'var(--accent-sage-light)' : 'var(--bg-card-secondary)',
-                  cursor: 'pointer',
-                  transition: 'all 200ms var(--ease-out)',
                   display: 'flex',
                   alignItems: 'center',
                   gap: 'var(--space-md)'
@@ -299,9 +295,8 @@ export function BrewWorkspace({
                     {r.author} · {r.targetTime} · 1:{r.ratio} · {r.temp}°C
                   </p>
                 </div>
-
                 {isSelected && (
-                  <span className="material-symbols-outlined filled" style={{ fontSize: '20px', color: 'var(--accent-sage)' }}>
+                  <span className="material-symbols-outlined filled" style={{ color: 'var(--accent-sage)', fontSize: '22px' }}>
                     check_circle
                   </span>
                 )}
