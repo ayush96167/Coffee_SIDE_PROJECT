@@ -1,57 +1,57 @@
 /* ═══════════════════════════════════════════════════════════
-   BrewMind — Neumorphism (Soft UI) Design System
-   Monochromatic Extruded Surfaces, Soft Light Highlights, Sunken Inset Shadows,
-   Clay Tactile Controls & Vibrant Coffee Accent Indicators
+   BrewMind — Alpine Sage (Wellness & Lifestyle) Design System
+   Deep Charcoal Green (#0F1412), Muted Pine Cards (#1A2321),
+   Cool Silver (#94A3B8), Soft Teal Accent (#2DD4BF) & Ice White Text (#F1F5F9)
    ═══════════════════════════════════════════════════════════ */
 
-/* ── Design Tokens — Neumorphic Soft UI Palette ─────────── */
+/* ── Design Tokens — Alpine Sage Palette ─────────────────── */
 :root {
-  /* Surfaces — Extruded Monochromatic Canvas */
-  --bg-surface: #E4E9F0;
-  --bg-primary: #E4E9F0;
-  --bg-card: #E4E9F0;
-  --bg-card-solid: #E4E9F0;
-  --bg-card-secondary: #E4E9F0;
-  --bg-elevated: #E4E9F0;
-  --bg-hover: #E4E9F0;
-  --bg-overlay: rgba(26, 31, 40, 0.45);
+  /* Surface Layers */
+  --bg-surface: #0F1412;        /* Deep Charcoal Green */
+  --bg-base: #0F1412;
+  --bg-primary: #121816;
+  --bg-card: #1A2321;           /* Muted Pine */
+  --bg-card-solid: #1A2321;
+  --bg-card-secondary: #131A18;
+  --bg-elevated: #232E2C;
+  --bg-hover: rgba(45, 212, 191, 0.08);
+  --bg-overlay: rgba(10, 14, 12, 0.8);
 
-  /* Dual Light & Dark Shadows for Light Mode */
-  --neu-light: #FFFFFF;
-  --neu-dark: #BCC7D6;
-  --neu-dark-strong: #A8B5C7;
+  /* Dual Light & Dark Neumorphic Soft Shadows for Alpine Sage */
+  --neu-light: #222D2B;
+  --neu-dark: #080C0B;
+  --neu-dark-strong: #050807;
 
-  /* Raised Extruded Shadows */
+  /* Shadows — Soft Extruded & Inset Depth */
   --shadow-xs: 3px 3px 8px var(--neu-dark), -3px -3px 8px var(--neu-light);
-  --shadow-sm: 5px 5px 12px var(--neu-dark), -5px -5px 12px var(--neu-light);
-  --shadow-md: 8px 8px 20px var(--neu-dark), -8px -8px 20px var(--neu-light);
-  --shadow-lg: 12px 12px 28px var(--neu-dark), -12px -12px 28px var(--neu-light);
-  --shadow-xl: 16px 16px 40px var(--neu-dark-strong), -16px -16px 40px var(--neu-light);
+  --shadow-sm: 5px 5px 14px var(--neu-dark), -4px -4px 12px var(--neu-light);
+  --shadow-md: 8px 8px 22px var(--neu-dark), -6px -6px 18px var(--neu-light);
+  --shadow-lg: 12px 12px 30px var(--neu-dark), -8px -8px 24px var(--neu-light);
+  --shadow-xl: 16px 16px 45px var(--neu-dark-strong), -10px -10px 30px var(--neu-light);
 
-  /* Sunken Carved Inset Shadows */
   --shadow-sunken: inset 4px 4px 10px var(--neu-dark), inset -4px -4px 10px var(--neu-light);
   --shadow-sunken-deep: inset 6px 6px 14px var(--neu-dark-strong), inset -6px -6px 14px var(--neu-light);
 
-  /* Text — Soft Crisp Contrast Inks */
-  --text-primary: #2C3545;
-  --text-secondary: #5C6A80;
-  --text-muted: #8C9BB0;
-  --text-inverse: #FFFFFF;
+  /* Text — Ice White & Cool Silver */
+  --text-primary: #F1F5F9;      /* Ice White */
+  --text-secondary: #94A3B8;    /* Cool Silver */
+  --text-muted: #64748B;
+  --text-inverse: #0F1412;
 
-  /* Accents — Coffee Copper & Botanical Sage Highlights */
-  --accent: #C87A3E;
-  --accent-hover: #AF642B;
-  --accent-light: rgba(200, 122, 62, 0.16);
-  --accent-sage: #4E7259;
-  --accent-sage-hover: #3E5B47;
-  --accent-sage-light: rgba(78, 114, 89, 0.16);
-  --accent-amber: #D98832;
-  --accent-red: #D94438;
-  --accent-green: #2E8B4E;
+  /* Accents — Soft Teal & Cool Silver */
+  --accent: #2DD4BF;           /* Soft Teal */
+  --accent-hover: #26BCA9;
+  --accent-light: rgba(45, 212, 191, 0.16);
+  --accent-sage: #94A3B8;      /* Cool Silver */
+  --accent-sage-hover: #CBD5E1;
+  --accent-sage-light: rgba(148, 163, 184, 0.16);
+  --accent-amber: #F59E0B;
+  --accent-red: #F87171;
+  --accent-green: #2DD4BF;
 
-  /* Borders — Seamless Soft Borders */
-  --border: transparent;
-  --border-strong: rgba(255, 255, 255, 0.4);
+  /* Borders & Rim Lights */
+  --border: rgba(148, 163, 184, 0.12);
+  --border-strong: rgba(45, 212, 191, 0.25);
   --border-focus: var(--accent);
 
   /* Radii */
@@ -83,43 +83,35 @@
   --duration-slow: 380ms;
 }
 
-/* ── Dark Neumorphic Theme — Slate Soft Clay ─────────────── */
+/* ── Dark Theme (Full Match to Alpine Spec) ──────────────── */
 [data-theme="dark"] {
-  --bg-surface: #1E222A;
-  --bg-primary: #1E222A;
-  --bg-card: #1E222A;
-  --bg-card-solid: #1E222A;
-  --bg-card-secondary: #1E222A;
-  --bg-elevated: #1E222A;
-  --bg-hover: #1E222A;
-  --bg-overlay: rgba(0, 0, 0, 0.75);
+  --bg-surface: #0F1412;
+  --bg-base: #0F1412;
+  --bg-primary: #121816;
+  --bg-card: #1A2321;
+  --bg-card-solid: #1A2321;
+  --bg-card-secondary: #131A18;
+  --bg-elevated: #232E2C;
+  --bg-hover: rgba(45, 212, 191, 0.1);
+  --bg-overlay: rgba(8, 11, 10, 0.85);
 
-  --neu-light: #282E39;
-  --neu-dark: #14171C;
-  --neu-dark-strong: #0F1216;
+  --neu-light: #222D2B;
+  --neu-dark: #080C0B;
+  --neu-dark-strong: #050807;
 
-  --shadow-xs: 3px 3px 8px var(--neu-dark), -3px -3px 8px var(--neu-light);
-  --shadow-sm: 5px 5px 12px var(--neu-dark), -5px -5px 12px var(--neu-light);
-  --shadow-md: 8px 8px 20px var(--neu-dark), -8px -8px 20px var(--neu-light);
-  --shadow-lg: 12px 12px 28px var(--neu-dark), -12px -12px 28px var(--neu-light);
-  --shadow-xl: 16px 16px 40px var(--neu-dark-strong), -16px -16px 40px var(--neu-light);
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
 
-  --shadow-sunken: inset 4px 4px 10px var(--neu-dark), inset -4px -4px 10px var(--neu-light);
-  --shadow-sunken-deep: inset 6px 6px 14px var(--neu-dark-strong), inset -6px -6px 14px var(--neu-light);
+  --accent: #2DD4BF;
+  --accent-hover: #26BCA9;
+  --accent-light: rgba(45, 212, 191, 0.2);
+  --accent-sage: #94A3B8;
+  --accent-sage-hover: #CBD5E1;
+  --accent-sage-light: rgba(148, 163, 184, 0.2);
 
-  --text-primary: #E8EEF5;
-  --text-secondary: #A6B4C7;
-  --text-muted: #718299;
-
-  --accent: #E08E45;
-  --accent-hover: #F0A058;
-  --accent-light: rgba(224, 142, 69, 0.2);
-  --accent-sage: #6B9B78;
-  --accent-sage-hover: #7CB08B;
-  --accent-sage-light: rgba(107, 155, 120, 0.2);
-
-  --border: transparent;
-  --border-strong: rgba(255, 255, 255, 0.08);
+  --border: rgba(148, 163, 184, 0.15);
+  --border-strong: rgba(45, 212, 191, 0.3);
 }
 
 /* ── Base Reset & Body ───────────────────────────────────── */
@@ -167,7 +159,7 @@ h1, h2, h3, h4, h5, h6 {
 .text-caption {
   font-size: 11px;
   font-weight: 700;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -203,7 +195,7 @@ h1, h2, h3, h4, h5, h6 {
   font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
 }
 
-/* ── Neumorphic Extruded App Container ──────────────────── */
+/* ── App Container ───────────────────────────────────────── */
 .app-container {
   width: 100%;
   max-width: 1080px;
@@ -213,6 +205,8 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   z-index: 1;
   padding-bottom: 96px;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
 }
 
 @media (min-width: 640px) {
@@ -226,10 +220,11 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: var(--space-md);
     margin-bottom: var(--space-md);
     overflow: hidden;
+    border: 1px solid var(--border);
   }
 }
 
-/* ── Neumorphic Extruded Soft Cards ──────────────────────── */
+/* ── Alpine Sage Muted Pine Cards ────────────────────────── */
 .glass-card {
   background: var(--bg-card);
   border-radius: var(--radius-lg);
@@ -237,12 +232,14 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-md);
   position: relative;
   transition: transform var(--duration-normal) var(--ease-out),
-              box-shadow var(--duration-normal) var(--ease-out);
-  border: 1px solid var(--border-strong);
+              box-shadow var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal) var(--ease-out);
+  border: 1px solid var(--border);
 }
 
 .glass-card:hover {
   box-shadow: var(--shadow-lg);
+  border-color: rgba(45, 212, 191, 0.3);
 }
 
 .card-interactive {
@@ -260,26 +257,26 @@ h1, h2, h3, h4, h5, h6 {
   transition-duration: 50ms;
 }
 
-/* Sunken Inset Card (Carved Inset Plate) */
+/* Carved Sunken Inset Plate */
 .card-secondary {
   background: var(--bg-card-secondary);
   box-shadow: var(--shadow-sunken);
   border-radius: var(--radius-md);
   padding: var(--space-md);
-  border: none;
+  border: 1px solid rgba(148, 163, 184, 0.08);
 }
 
-/* Accent Extruded Pill Card */
+/* Teal Highlight Card */
 .card-accent {
-  background: var(--accent-sage);
-  color: var(--text-inverse);
+  background: linear-gradient(135deg, #1A3834 0%, #112724 100%);
+  color: var(--text-primary);
   border-radius: var(--radius-lg);
   padding: var(--space-lg);
-  box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.15), -4px -4px 12px rgba(255, 255, 255, 0.2);
-  border: none;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--accent);
 }
 
-/* ── Neumorphic Soft Buttons ─────────────────────────────── */
+/* ── Buttons ─────────────────────────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -308,24 +305,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-  background: var(--accent-sage);
-  color: #FFFFFF;
-  box-shadow: 5px 5px 14px rgba(0, 0, 0, 0.18), -3px -3px 10px rgba(255, 255, 255, 0.25);
+  background: linear-gradient(135deg, #2DD4BF 0%, #14B8A6 100%);
+  color: #0F1412;
+  box-shadow: 0 4px 16px rgba(45, 212, 191, 0.35);
 }
 
 .btn-primary:hover {
-  background: var(--accent-sage-hover);
-  box-shadow: 7px 7px 18px rgba(0, 0, 0, 0.22), -4px -4px 12px rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #5EEAD4 0%, #2DD4BF 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(45, 212, 191, 0.45);
 }
 
 .btn-secondary {
   background: var(--bg-card);
   color: var(--text-primary);
   box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
 }
 
 .btn-secondary:hover {
   box-shadow: var(--shadow-md);
+  border-color: var(--accent);
 }
 
 .btn-secondary:active {
@@ -340,10 +340,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-ghost:hover {
-  box-shadow: var(--shadow-xs);
+  background: var(--accent-light);
 }
 
-/* Neumorphic Extruded Circle Icon Button */
+/* Icon Buttons */
 .btn-icon {
   width: 44px;
   height: 44px;
@@ -357,19 +357,20 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-sm);
   color: var(--text-primary);
   cursor: pointer;
-  border: none;
+  border: 1px solid var(--border);
   transition: all var(--duration-fast) var(--ease-out);
 }
 
 .btn-icon:hover {
   box-shadow: var(--shadow-md);
+  color: var(--accent);
 }
 
 .btn-icon:active {
   box-shadow: var(--shadow-sunken);
 }
 
-/* ── Neumorphic Extruded & Sunken Chips/Badges ───────────── */
+/* ── Chips & Badges ──────────────────────────────────────── */
 .chip {
   display: inline-flex;
   align-items: center;
@@ -382,7 +383,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--bg-card);
   color: var(--text-secondary);
   box-shadow: var(--shadow-xs);
-  border: none;
+  border: 1px solid var(--border);
   cursor: pointer;
   transition: all var(--duration-fast) var(--ease-out);
   -webkit-user-select: none;
@@ -393,12 +394,14 @@ h1, h2, h3, h4, h5, h6 {
 .chip:hover {
   box-shadow: var(--shadow-sm);
   color: var(--text-primary);
+  border-color: var(--accent);
 }
 
 .chip.active {
-  background: var(--accent-sage);
-  color: #FFFFFF;
-  box-shadow: var(--shadow-sunken-deep);
+  background: var(--accent);
+  color: #0F1412;
+  border-color: var(--accent);
+  box-shadow: 0 4px 14px rgba(45, 212, 191, 0.4);
 }
 
 .badge {
@@ -418,22 +421,24 @@ h1, h2, h3, h4, h5, h6 {
 .badge-accent {
   background: var(--accent-light);
   color: var(--accent);
+  border: 1px solid rgba(45, 212, 191, 0.3);
 }
 
 .badge-sage {
   background: var(--accent-sage-light);
-  color: var(--accent-sage);
+  color: var(--text-primary);
+  border: 1px solid rgba(148, 163, 184, 0.3);
 }
 
-/* ── Sunken Channel Segmented Control ────────────────────── */
+/* ── Segmented Control ───────────────────────────────────── */
 .segmented-control {
   display: flex;
-  background: var(--bg-card);
-  box-shadow: var(--shadow-sunken-deep);
+  background: var(--bg-card-secondary);
+  box-shadow: var(--shadow-sunken);
   border-radius: var(--radius-full);
   padding: 5px;
   gap: 4px;
-  border: none;
+  border: 1px solid var(--border);
   overflow-x: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -471,9 +476,10 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--bg-card);
   color: var(--accent);
   box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(45, 212, 191, 0.3);
 }
 
-/* ── Neumorphic Navigation Bars ──────────────────────────── */
+/* ── Navigation Bars ─────────────────────────────────────── */
 .top-nav {
   display: flex;
   justify-content: space-between;
@@ -483,6 +489,7 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   background: var(--bg-surface);
   box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--border);
   z-index: 50;
 }
 
@@ -498,7 +505,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   max-width: 1080px;
   background: var(--bg-surface);
-  box-shadow: 0 -6px 20px var(--neu-dark);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -547,23 +555,24 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* ── Sunken Inset Form Inputs ───────────────────────────── */
+/* ── Form Inputs ─────────────────────────────────────────── */
 .input-field {
   width: 100%;
   padding: 12px 16px;
   border-radius: var(--radius-sm);
-  border: none;
-  background: var(--bg-card);
+  border: 1px solid var(--border);
+  background: var(--bg-card-secondary);
   box-shadow: var(--shadow-sunken);
   font-family: var(--font-sans);
   font-size: 15px;
   font-weight: 500;
   color: var(--text-primary);
   outline: none;
-  transition: box-shadow var(--duration-fast) var(--ease-out);
+  transition: box-shadow var(--duration-fast) var(--ease-out), border-color var(--duration-fast);
 }
 
 .input-field:focus {
+  border-color: var(--accent);
   box-shadow: var(--shadow-sunken-deep), 0 0 0 2px var(--accent-light);
 }
 
@@ -573,20 +582,20 @@ h1, h2, h3, h4, h5, h6 {
 
 select.input-field {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%235C6A80' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 14px center;
   padding-right: 38px;
 }
 
-/* Extruded Neumorphic Range Slider */
+/* Range Slider */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
   height: 10px;
   border-radius: var(--radius-full);
-  background: var(--bg-card);
+  background: var(--bg-card-secondary);
   box-shadow: var(--shadow-sunken);
   outline: none;
 }
@@ -597,9 +606,9 @@ input[type="range"]::-webkit-slider-thumb {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--bg-card);
-  box-shadow: var(--shadow-sm);
-  border: 2px solid var(--accent-sage);
+  background: var(--accent);
+  box-shadow: 0 2px 10px rgba(45, 212, 191, 0.4);
+  border: 2px solid #0F1412;
   cursor: pointer;
   transition: transform var(--duration-fast) var(--ease-spring);
 }
@@ -612,13 +621,13 @@ input[type="range"]::-webkit-slider-thumb:active {
   box-shadow: var(--shadow-sunken);
 }
 
-/* ── Neumorphic Modals & Overlays ────────────────────────── */
+/* ── Modals & Overlays ───────────────────────────────────── */
 .modal-overlay {
   position: fixed;
   inset: 0;
   background: var(--bg-overlay);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   z-index: 1000;
   display: flex;
   align-items: flex-end;
@@ -647,7 +656,7 @@ input[type="range"]::-webkit-slider-thumb:active {
   flex-direction: column;
   gap: var(--space-lg);
   animation: slideUp var(--duration-slow) var(--ease-out);
-  border: none;
+  border: 1px solid var(--border-strong);
 }
 
 @media (min-width: 640px) {
@@ -698,12 +707,12 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--neu-dark);
+  background: #232E2C;
   border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+  background: var(--accent);
 }
 
 /* ── Utilities ───────────────────────────────────────────── */
